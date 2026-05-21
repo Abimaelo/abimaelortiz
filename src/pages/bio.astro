@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Biografía"
+  description="Abimael Ortiz Álvarez — Artista visual puertorriqueño. Dibujo, acrílico, fotografía y arte digital."
+>
+
+  <div class="pt-32 pb-16 px-6 md:px-12 border-b border-[#1a1a1a]">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-[10px] tracking-[0.4em] uppercase text-[#c8a96e] mb-4" style="font-family:'Inter',sans-serif;">Artista</p>
+      <h1 class="font-serif text-4xl md:text-6xl text-[#f5f5f0]" style="font-family:'Playfair Display',serif;">Biografía</h1>
+    </div>
+  </div>
+
+  <div class="px-6 md:px-12 py-20">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-[1fr_2fr] gap-16">
+
+      <!-- Columna izquierda: foto y datos -->
+      <div class="space-y-8">
+
+        <div class="aspect-[3/4] overflow-hidden">
+          <img
+            src="/images/perfil.png"
+            alt="Abimael Ortiz Álvarez"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Datos rápidos -->
+        <div class="space-y-0 divide-y divide-[#1a1a1a]">
+          <div class="py-4">
+            <p class="text-[10px] tracking-[0.3em] uppercase text-[#888888] mb-1" style="font-family:'Inter',sans-serif;">Origen</p>
+            <p class="text-sm text-[#f5f5f0]" style="font-family:'Inter',sans-serif;">Vega Alta, Puerto Rico</p>
+          </div>
+          <div class="py-4">
+            <p class="text-[10px] tracking-[0.3em] uppercase text-[#888888] mb-1" style="font-family:'Inter',sans-serif;">Residencia</p>
+            <p class="text-sm text-[#f5f5f0]" style="font-family:'Inter',sans-serif;">San Juan, Puerto Rico</p>
+          </div>
+          <div class="py-4">
+            <p class="text-[10px] tracking-[0.3em] uppercase text-[#888888] mb-2" style="font-family:'Inter',sans-serif;">Medios</p>
+            <div class="flex flex-wrap gap-2">
+              {['Dibujo', 'Acrílico', 'Fotografía', 'Arte digital'].map((m) => (
+                <span
+                  class="text-[10px] tracking-wider uppercase border border-[#2a2a2a] px-2 py-0.5 text-[#888888]"
+                  style="font-family:'Inter',sans-serif;"
+                >
+                  {m}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div class="py-4">
+            <p class="text-[10px] tracking-[0.3em] uppercase text-[#888888] mb-1" style="font-family:'Inter',sans-serif;">Contacto</p>
+            <a href="mailto:mail@abimaelortiz.com" class="text-sm text-[#c8a96e] hover:underline" style="font-family:'Inter',sans-serif;">
+              mail@abimaelortiz.com
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Columna derecha: texto -->
+      <div class="space-y-14">
+
+        <!-- Declaración completa -->
+        <div>
+          <p class="text-[10px] tracking-[0.4em] uppercase text-[#c8a96e] mb-8" style="font-family:'Inter',sans-serif;">Declaración artística</p>
+
+          <div class="space-y-5 text-sm text-[#aaaaaa] leading-[1.85]" style="font-family:'Inter',sans-serif; font-weight:300;">
+            <p class="text-base text-[#f5f5f0] font-serif italic leading-snug" style="font-family:'Playfair Display',serif;">
+              Mi obra siempre está relacionada a la experiencia humana. Exploro la dicotomía entre las limitaciones intrínsecas del ser humano y su deseo de trascenderlas.
+            </p>
+            <p>
+              Mi obra nace de la experiencia directa de habitar una mente que procesa el mundo de manera no lineal. He conocido el caos desde adentro, no como concepto filosófico sino como experiencia cotidiana. Esa familiaridad con la fragmentación, con la dificultad de organizar la percepción, con la búsqueda constante de un marco que dé sentido, es el origen real de mi interés en la dicotomía entre límite y trascendencia. No exploro estos temas porque los encontré en un libro. Los encontré en los libros porque ya los estaba viviendo.
+            </p>
+            <p>
+              Entender que proceso el mundo de manera divergente, encontrando conexiones transversales entre campos distintos, me permitió reconocer ese modo de pensar no como una limitación sino como el método mismo de mi práctica.
+            </p>
+            <p>
+              Extraigo analogías de distintas ramas del conocimiento — la ciencia, la filosofía, la psicología — y me las llevo como perlas que me acompañan. No me interesa dominar los sistemas completos sino encontrar el momento en que una idea ilumina algo de la experiencia humana cotidiana. Ese momento de reconocimiento es el punto de partida.
+            </p>
+            <p>
+              Es desde ese lugar — la mente divergente, el caos conocido desde adentro, la búsqueda de marcos que den sentido — que surge mi práctica pictórica. Pintar es para mí el espacio donde las analogías se vuelven visibles antes de poder ser explicadas.
+            </p>
+            <p>
+              Mis pinturas proponen un espacio que no es físico sino interior. La figura humana habita ese espacio, no como personaje sino como eje — el punto donde lo terrenal y lo trascendente se tocan. Los elementos que la rodean — geometría, textura, patrones — no son decorativos. Cada uno cumple una función dentro de una arquitectura invisible que organiza el caos de la experiencia. Cada obra es un fragmento de un universo propio, con sus leyes internas, su mitología visual y su lógica particular. Espero que el observador entre en esa lectura, que no encuentre respuestas inmediatas sino preguntas que reconoce como propias.
+            </p>
+          </div>
+        </div>
+
+        <!-- Divisor -->
+        <div class="h-px bg-[#1a1a1a]"></div>
+
+        <!-- Trayectoria -->
+        <div>
+          <p class="text-[10px] tracking-[0.4em] uppercase text-[#c8a96e] mb-6" style="font-family:'Inter',sans-serif;">Trayectoria</p>
+          <div class="space-y-4 text-sm text-[#aaaaaa] leading-relaxed" style="font-family:'Inter',sans-serif; font-weight:300;">
+            <p>
+              Nacido en Bayamón en 1979 y criado en Vega Alta, Abimael Ortiz Álvarez se formó en la Escuela de Artes Plásticas de San Juan entre 1997 y 2002. Tras su graduación, y durante casi dos décadas, se alejó del circuito artístico.
+            </p>
+            <p>
+              Hoy, desde San Juan, da sus primeros pasos como artista en el ámbito público. Ese intervalo no fue ausencia — fue sedimentación. La práctica que emerge ahora lleva el peso de lo vivido: una visión del mundo formada fuera de los márgenes institucionales, moldeada por la experiencia directa y el pensamiento transversal.
+            </p>
+            <p>
+              Trabaja en dibujo, acrílico, fotografía y arte digital, medios que le permiten moverse entre lo gestual y lo conceptual, entre lo analógico y lo construido.
+            </p>
+          </div>
+        </div>
+
+        <!-- Formación -->
+        <div>
+          <p class="text-[10px] tracking-[0.4em] uppercase text-[#c8a96e] mb-6" style="font-family:'Inter',sans-serif;">Formación</p>
+          <div class="border-t border-[#1a1a1a] pt-5 flex gap-8">
+            <span class="text-xs text-[#888888] w-20 flex-shrink-0 pt-0.5" style="font-family:'Inter',sans-serif;">1997 — 2002</span>
+            <div>
+              <p class="text-sm text-[#f5f5f0]" style="font-family:'Inter',sans-serif;">Escuela de Artes Plásticas</p>
+              <p class="text-xs text-[#888888] mt-0.5" style="font-family:'Inter',sans-serif;">San Juan, Puerto Rico</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a
+            href="/obras"
+            class="px-6 py-2.5 border border-[#f5f5f0] text-[#f5f5f0] text-xs tracking-[0.2em] uppercase hover:bg-[#f5f5f0] hover:text-[#0a0a0a] transition-all duration-300"
+            style="font-family:'Inter',sans-serif;"
+          >
+            Ver obras
+          </a>
+          <a
+            href="/contacto"
+            class="px-6 py-2.5 border border-[#2a2a2a] text-[#888888] text-xs tracking-[0.2em] uppercase hover:border-[#f5f5f0] hover:text-[#f5f5f0] transition-all duration-300"
+            style="font-family:'Inter',sans-serif;"
+          >
+            Contacto
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</Layout>

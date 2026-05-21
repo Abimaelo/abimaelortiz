@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --color-black: #0a0a0a;
+  --color-white: #f5f5f0;
+  --color-gray-dark: #1a1a1a;
+  --color-gray-mid: #2a2a2a;
+  --color-gray-light: #888888;
+  --color-accent: #c8a96e;
+}
+
+/* Base */
+html {
+  background-color: #0a0a0a;
+  color: #f5f5f0;
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+}
+
+/* Selección de texto */
+::selection {
+  background: #c8a96e33;
+  color: #f5f5f0;
+}
+
+/* Transiciones de página */
+.page-transition {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

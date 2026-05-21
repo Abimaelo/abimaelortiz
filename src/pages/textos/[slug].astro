@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const textos = await getCollection('textos', ({ data }) => !data.draft);
+  return textos.map((texto) => ({
+    params: { slug: texto.id },
+    props: { texto },
+  }));
+}
+
+const { texto } = Astro.props;
+const { Content } = await render(texto);
+---
+
+<Layout
+  title={texto.data.title}
+  description={texto.data.description}
+>
+
+  <div class="pt-32 pb-16 px-6 md:px-12 border-b border-[#1a1a1a]">
+    <div class="max-w-3xl mx-auto">
+      <a
+        href="/textos"
+        class="inline-block text-[10px] tracking-[0.3em] uppercase text-[#888888] hover:text-[#f5f5f0] transition-colors mb-10"
+        style="font-family:'Inter',sans-serif;"
+      >
+        ← Textos
+      </a>
+      <p
+        class="text-[10px] tracking-[0.3em] uppercase text-[#888888] mb-6"
+        style="font-family:'Inter',sans-serif;"
+      >
+        {texto.data.date.toLocaleDateString('es', { year: 'numeric', month: 'long' })}
+      </p>
+      <h1
+        class="font-serif text-3xl md:text-5xl text-[#f5f5f0] leading-tight"
+        style="font-family:'Playfair Display',serif;"
+      >
+        {texto.data.title}
+      </h1>
+      {texto.data.description && (
+        <p
+          class="mt-6 text-base text-[#888888] leading-relaxed max-w-xl"
+          style="font-family:'Inter',sans-serif; font-weight:300;"
+        >
+          {texto.data.description}
+        </p>
+      )}
+    </div>
+  </div>
+
+  <article class="px-6 md:px-12 py-16">
+    <div class="max-w-3xl mx-auto">
+      <div class="prose-texto">
+        <Content />
+      </div>
+
+      <div class="mt-20 pt-10 border-t border-[#1a1a1a] flex items-center justify-between">
+        <a
+          href="/textos"
+          class="text-xs tracking-[0.3em] uppercase text-[#888888] hover:text-[#f5f5f0] transition-colors"
+          style="font-family:'Inter',sans-serif;"
+        >
+          ← Volver a textos
+        </a>
+        <a
+          href="/obras"
+          class="text-xs tracking-[0.3em] uppercase text-[#888888] hover:text-[#f5f5f0] transition-colors"
+          style="font-family:'Inter',sans-serif;"
+        >
+          Ver obras →
+        </a>
+      </div>
+    </div>
+  </article>
+
+</Layout>
+
+<style>
+  .prose-texto :global(p) {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.125rem;
+    line-height: 1.85;
+    color: #cccccc;
+    margin-bottom: 1.75rem;
+  }
+
+  .prose-texto :global(h2),
+  .prose-texto :global(h3) {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.625rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .prose-texto :global(hr) {
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    margin: 3rem 0;
+  }
+
+  .prose-texto :global(blockquote) {
+    border-left: 2px solid #c8a96e;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #f5f5f0;
+  }
+
+  .prose-texto :global(strong) {
+    color: #f5f5f0;
+    font-weight: 500;
+  }
+</style>

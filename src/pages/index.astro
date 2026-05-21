@@ -1,0 +1,234 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WorkCard from '../components/WorkCard.astro';
+
+const featuredWorks = [
+  {
+    title: 'Sin título I',
+    serie: 'Estudios',
+    year: 2025,
+    technique: 'Medio mixto sobre papel',
+    dimensions: '9 × 12 in',
+    image: '/images/estudio-01.jpg',
+    href: '/obras',
+  },
+  {
+    title: 'Sin título II',
+    serie: 'Estudios',
+    year: 2025,
+    technique: 'Medio mixto sobre papel',
+    dimensions: '9 × 12 in',
+    image: '/images/estudio-02.jpg',
+    href: '/obras',
+  },
+  {
+    title: 'Sin título III',
+    serie: 'Estudios',
+    year: 2025,
+    technique: 'Medio mixto sobre papel',
+    dimensions: '9 × 12 in',
+    image: '/images/estudio-03.jpg',
+    href: '/obras',
+  },
+];
+---
+
+<Layout
+  title="Inicio"
+  description="Abimael Ortiz Álvarez — Artista Visual. Pintura, técnica mixta y obra contemporánea."
+>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-end pb-16 md:pb-24 px-6 md:px-12 overflow-hidden">
+
+    <div class="absolute inset-0 bg-[#0d0d0d]">
+      <img
+        src="/images/hero.jpg"
+        alt="Abimael Ortiz Álvarez"
+        class="absolute inset-0 w-full h-full object-cover opacity-50"
+      />
+      <div
+        class="absolute inset-0"
+        style="background: linear-gradient(to right, rgba(10,10,10,0.85) 40%, rgba(10,10,10,0.3) 100%);"
+      ></div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl w-full mx-auto">
+      <div class="max-w-xl">
+        <p
+          class="text-xs tracking-[0.4em] uppercase text-[#c8a96e] mb-6"
+          style="font-family: 'Inter', sans-serif;"
+        >
+          Artista Visual
+        </p>
+        <h1
+          class="font-serif text-5xl md:text-7xl lg:text-8xl text-[#f5f5f0] leading-[0.95] mb-8"
+          style="font-family: 'Playfair Display', serif;"
+        >
+          Abimael<br />
+          <em class="not-italic text-[#c8a96e]">Ortiz</em><br />
+          Álvarez
+        </h1>
+        <p
+          class="text-sm md:text-base text-[#888888] leading-relaxed max-w-sm mb-10"
+          style="font-family: 'Inter', sans-serif; font-weight: 300;"
+        >
+          Exploro la dicotomía entre las limitaciones intrínsecas del ser humano y su deseo de trascenderlas.
+        </p>
+        <div class="flex items-center gap-6">
+          <a
+            href="/obras"
+            class="inline-block px-8 py-3 border border-[#f5f5f0] text-[#f5f5f0] text-xs tracking-[0.3em] uppercase hover:bg-[#f5f5f0] hover:text-[#0a0a0a] transition-all duration-300"
+            style="font-family: 'Inter', sans-serif;"
+          >
+            Ver obras
+          </a>
+          <a
+            href="/bio"
+            class="text-xs tracking-[0.3em] uppercase text-[#888888] hover:text-[#f5f5f0] transition-colors duration-300"
+            style="font-family: 'Inter', sans-serif;"
+          >
+            Sobre el artista →
+          </a>
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 right-0 hidden md:flex flex-col items-center gap-3">
+        <span
+          class="text-[9px] tracking-[0.4em] uppercase text-[#888888]"
+          style="font-family: 'Inter', sans-serif; writing-mode: vertical-rl;"
+        >
+          Scroll
+        </span>
+        <div class="w-px h-12 bg-gradient-to-b from-[#888888] to-transparent"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divisor -->
+  <div class="w-full px-6 md:px-12">
+    <div class="max-w-6xl mx-auto h-px bg-[#1a1a1a]"></div>
+  </div>
+
+  <!-- Obras destacadas -->
+  <section class="px-6 md:px-12 py-20 md:py-28">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-end justify-between mb-14">
+        <div>
+          <p
+            class="text-[10px] tracking-[0.4em] uppercase text-[#c8a96e] mb-3"
+            style="font-family: 'Inter', sans-serif;"
+          >
+            Selección
+          </p>
+          <h2
+            class="font-serif text-3xl md:text-4xl text-[#f5f5f0]"
+            style="font-family: 'Playfair Display', serif;"
+          >
+            Obra reciente
+          </h2>
+        </div>
+        <a
+          href="/obras"
+          class="hidden md:inline-block text-xs tracking-[0.25em] uppercase text-[#888888] hover:text-[#f5f5f0] transition-colors duration-300 border-b border-[#2a2a2a] hover:border-[#f5f5f0] pb-0.5"
+          style="font-family: 'Inter', sans-serif;"
+        >
+          Ver galería completa
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+        {featuredWorks.map((work) => (
+          <WorkCard {...work} />
+        ))}
+      </div>
+
+      <div class="mt-10 md:hidden text-center">
+        <a
+          href="/obras"
+          class="text-xs tracking-[0.25em] uppercase text-[#888888] hover:text-[#f5f5f0] transition-colors"
+          style="font-family: 'Inter', sans-serif;"
+        >
+          Ver galería completa →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statement -->
+  <section class="px-6 md:px-12 py-20 md:py-28 border-t border-[#1a1a1a]">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <p
+          class="text-[10px] tracking-[0.4em] uppercase text-[#c8a96e] mb-6"
+          style="font-family: 'Inter', sans-serif;"
+        >
+          Statement
+        </p>
+        <blockquote
+          class="font-serif text-2xl md:text-3xl text-[#f5f5f0] leading-snug italic"
+          style="font-family: 'Playfair Display', serif;"
+        >
+          "Mi obra siempre está relacionada a la experiencia humana. Exploro la dicotomía entre las limitaciones intrínsecas del ser humano y su deseo de trascenderlas."
+        </blockquote>
+      </div>
+      <div class="space-y-6">
+        <p
+          class="text-sm text-[#888888] leading-relaxed"
+          style="font-family: 'Inter', sans-serif; font-weight: 300;"
+        >
+          Abimael Ortiz Álvarez es un artista visual nacido en Puerto Rico. Formado en la Escuela de Artes Plásticas de San Juan, trabaja en dibujo, acrílico, fotografía y arte digital. Su práctica explora la experiencia de habitar una mente divergente y la búsqueda de marcos que den sentido al caos de lo cotidiano.
+        </p>
+        <a
+          href="/bio"
+          class="inline-block text-xs tracking-[0.3em] uppercase text-[#888888] hover:text-[#f5f5f0] transition-colors border-b border-[#2a2a2a] hover:border-[#f5f5f0] pb-0.5"
+          style="font-family: 'Inter', sans-serif;"
+        >
+          Leer biografía completa
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Práctica -->
+  <section class="px-6 md:px-12 py-20 border-t border-[#1a1a1a]">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-[1fr_2fr] gap-16 items-start">
+
+      <div>
+        <p class="text-[10px] tracking-[0.4em] uppercase text-[#c8a96e] mb-4" style="font-family:'Inter',sans-serif;">Práctica</p>
+        <h2
+          class="font-serif text-3xl md:text-4xl text-[#f5f5f0]"
+          style="font-family:'Playfair Display',serif;"
+        >
+          Medios y<br/>aproximación
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#1a1a1a]">
+        {[
+          { label: 'Dibujo', desc: 'El trazo como pensamiento visible, exploración de la forma antes del color.' },
+          { label: 'Acrílico', desc: 'Capas, textura y gesto. El soporte donde la figura y el espacio interior convergen.' },
+          { label: 'Fotografía', desc: 'La captura del instante como fragmento de una realidad interior.' },
+          { label: 'Arte digital', desc: 'Extensión del proceso creativo hacia lo construido y lo sintético.' },
+        ].map(({ label, desc }) => (
+          <div class="bg-[#0a0a0a] p-6 flex flex-col gap-4">
+            <p
+              class="text-[10px] tracking-[0.3em] uppercase text-[#c8a96e]"
+              style="font-family:'Inter',sans-serif;"
+            >
+              {label}
+            </p>
+            <p
+              class="text-xs text-[#888888] leading-relaxed"
+              style="font-family:'Inter',sans-serif; font-weight:300;"
+            >
+              {desc}
+            </p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

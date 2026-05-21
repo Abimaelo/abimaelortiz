@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WorkCard from '../../components/WorkCard.astro';
+
+export function getStaticPaths() {
+  const series = [
+    {
+      slug: 'fragmentos',
+      name: 'Fragmentos',
+      year: '2021 — 2024',
+      description:
+        'Una exploración de la ruptura y la recomposición como metáforas de la identidad contemporánea. Piezas en óleo que investigan la superficie como campo de tensión entre lo que permanece y lo que se disuelve.',
+      works: [
+        { title: 'Sin título I', year: 2024, technique: 'Óleo sobre tela', dimensions: '120 × 90 cm', image: '/images/placeholder-1.jpg' },
+        { title: 'Sin título II', year: 2024, technique: 'Óleo sobre tela', dimensions: '100 × 80 cm', image: '/images/placeholder-2.jpg' },
+        { title: 'Forma residual', year: 2021, technique: 'Óleo sobre tela', dimensions: '70 × 50 cm', image: '/images/placeholder-3.jpg' },
+      ],
+    },
+    {
+      slug: 'vestigios',
+      name: 'Vestigios',
+      year: '2022 — 2023',
+      description:
+        'Serie de técnica mixta que parte de objetos encontrados y materiales orgánicos. Cada pieza documenta la huella de lo vivido, convirtiendo el rastro en imagen.',
+      works: [
+        { title: 'Memoria del cuerpo', year: 2023, technique: 'Técnica mixta', dimensions: '80 × 60 cm', image: '/images/placeholder-2.jpg' },
+        { title: 'Huella I', year: 2023, technique: 'Técnica mixta', dimensions: '60 × 45 cm', image: '/images/placeholder-3.jpg' },
+      ],
+    },
+    {
+      slug: 'paisajes-interiores',
+      name: 'Paisajes interiores',
+      year: '2022 — 2023',
+      description:
+        'Paisajes que nunca han sido vistos pero que todos reconocemos. Acrílicos de gran formato que cartografían estados emocionales a través del color y la textura.',
+      works: [
+        { title: 'Tránsito nocturno', year: 2023, technique: 'Acrílico sobre lienzo', dimensions: '150 × 100 cm', image: '/images/placeholder-1.jpg' },
+        { title: 'Umbral', year: 2022, technique: 'Acrílico sobre lienzo', dimensions: '120 × 90 cm', image: '/images/placeholder-3.jpg' },
+      ],
+    },
+    {
+      slug: 'anatomias',
+      name: 'Anatomías',
+      year: '2020 — 2022',
+      description:
+        'Estudio del cuerpo como territorio desconocido. Obras en óleo y grafito que combinan el rigor del dibujo anatómico con la libertad gestual de la pintura contemporánea.',
+      works: [
+        { title: 'Materia gris', year: 2022, technique: 'Óleo y grafito', dimensions: '90 × 70 cm', image: '/images/placeholder-2.jpg' },
+        { title: 'Cartografía I', year: 2021, technique: 'Óleo y grafito', dimensions: '80 × 60 cm', image: '/images/placeholder-1.jpg' },
+      ],
+    },
+  ];
+
+  return series.map((s) => ({
+    params: { serie: s.slug },
+    props: { serie: s },
+  }));
+}
+
+const { serie } = Astro.props;
+---
+
+<Layout
+  title={serie.name}
+  description={`Serie "${serie.name}" — ${serie.description}`}
+>
+
+  <!-- Encabezado -->
+  <div class="pt-32 pb-16 px-6 md:px-12 border-b border-[#1a1a1a]">
+    <div class="max-w-6xl mx-auto">
+      <a
+        href="/obras"
+        class="inline-flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-[#888888] hover:text-[#f5f5f0] transition-colors mb-8"
+        style="font-family:'Inter',sans-serif;"
+      >
+        ← Todas las obras
+      </a>
+      <p class="text-[10px] tracking-[0.4em] uppercase text-[#c8a96e] mb-4" style="font-family:'Inter',sans-serif;">
+        Serie · {serie.year}
+      </p>
+      <h1
+        class="font-serif text-4xl md:text-6xl text-[#f5f5f0] mb-6"
+        style="font-family:'Playfair Display',serif;"
+      >
+        {serie.name}
+      </h1>
+      <p
+        class="text-sm text-[#888888] leading-relaxed max-w-xl"
+        style="font-family:'Inter',sans-serif; font-weight:300;"
+      >
+        {serie.description}
+      </p>
+    </div>
+  </div>
+
+  <!-- Obras de la serie -->
+  <section class="px-6 md:px-12 py-16">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6">
+        {serie.works.map((work) => (
+          <WorkCard
+            title={work.title}
+            serie={serie.name}
+            year={work.year}
+            technique={work.technique}
+            dimensions={work.dimensions}
+            image={work.image}
+            href="#"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegar a otras series -->
+  <div class="px-6 md:px-12 py-12 border-t border-[#1a1a1a]">
+    <div class="max-w-6xl mx-auto text-center">
+      <a
+        href="/obras"
+        class="inline-block px-8 py-3 border border-[#2a2a2a] text-[#888888] text-xs tracking-[0.3em] uppercase hover:border-[#f5f5f0] hover:text-[#f5f5f0] transition-all duration-300"
+        style="font-family:'Inter',sans-serif;"
+      >
+        Ver todas las series
+      </a>
+    </div>
+  </div>
+
+</Layout>

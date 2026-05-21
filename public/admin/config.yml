@@ -1,0 +1,89 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: es
+
+collections:
+  - name: "textos"
+    label: "Textos"
+    label_singular: "Texto"
+    folder: "src/content/textos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Descripción breve", name: "description", widget: "string", required: false }
+      - { label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Borrador", name: "draft", widget: "boolean", default: true, hint: "Si está activado, no aparece publicado." }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+
+  - name: "obras"
+    label: "Obras"
+    label_singular: "Obra"
+    folder: "src/content/obras"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Serie", name: "serie", widget: "string" }
+      - { label: "Año", name: "year", widget: "number", value_type: "int" }
+      - { label: "Técnica", name: "technique", widget: "string" }
+      - { label: "Dimensiones", name: "dimensions", widget: "string", required: false }
+      - { label: "Imagen principal", name: "image", widget: "image" }
+      - { label: "Descripción", name: "description", widget: "text", required: false }
+      - { label: "Destacada en home", name: "featured", widget: "boolean", default: false }
+      - { label: "Disponible en tienda", name: "forSale", widget: "boolean", default: false }
+      - { label: "Precio", name: "price", widget: "number", required: false }
+
+  - name: "series"
+    label: "Series"
+    label_singular: "Serie"
+    folder: "src/content/series"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Slug (URL)", name: "slug", widget: "string" }
+      - { label: "Años", name: "year", widget: "string", hint: "Ej: 2022 — 2024" }
+      - { label: "Descripción", name: "description", widget: "text" }
+      - { label: "Imagen de portada", name: "cover", widget: "image", required: false }
+
+  - name: "exposiciones"
+    label: "Exposiciones"
+    label_singular: "Exposición"
+    folder: "src/content/exposiciones"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Año", name: "year", widget: "number", value_type: "int" }
+      - { label: "Lugar / Galería", name: "place", widget: "string" }
+      - { label: "Ciudad y País", name: "city", widget: "string" }
+      - {
+          label: "Tipo",
+          name: "type",
+          widget: "select",
+          options: ["Individual", "Colectiva", "Premio", "Residencia"]
+        }
+      - { label: "Descripción", name: "description", widget: "text", required: false }
+
+  - name: "paginas"
+    label: "Páginas"
+    files:
+      - label: "Biografía"
+        name: "bio"
+        file: "src/content/paginas/bio.md"
+        fields:
+          - { label: "Statement", name: "statement", widget: "text" }
+          - { label: "Biografía", name: "bio", widget: "markdown" }
+          - { label: "Foto", name: "photo", widget: "image", required: false }
+      - label: "Home"
+        name: "home"
+        file: "src/content/paginas/home.md"
+        fields:
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Statement corto", name: "statement", widget: "text" }
